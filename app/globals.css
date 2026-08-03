@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* City Care Clinic — calming healthcare palette */
+:root {
+  --clinic-bg: #f0f7f8;
+  --clinic-surface: #f7fbfc;
+  --clinic-ink: #1a3a42;
+  --clinic-muted: #5a7a82;
+  --clinic-border: #d4e5e9;
+  --clinic-primary: #0d9488;
+  --clinic-primary-hover: #0f766e;
+  --clinic-accent: #0891b2;
+  --background: var(--clinic-bg);
+  --foreground: var(--clinic-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Soft page wash — subtle teal gradient atmosphere */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(13, 148, 136, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(8, 145, 178, 0.1), transparent),
+    var(--clinic-bg);
+}
+
+/* Animated typing dots */
+.typing-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--clinic-muted);
+  animation: typing-bounce 1.2s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing-bounce {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
